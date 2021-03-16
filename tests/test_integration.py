@@ -65,7 +65,7 @@ class TestDemo(unittest.TestCase):
         args = demo.read_in_args(["--graph", "internet"])
         G = demo.build_graph(args)
         dqm = demo.build_dqm(G)
-        sampler = LeapHybridDQMSampler()
+        sampler = LeapHybridDQMSampler(solver='hybrid_discrete_quadratic_model_version1_bulk')
         sample = demo.run_dqm_and_collect_solutions(dqm, sampler)
 
         group_1, group_2, sep_group, illegal_edges = demo.process_sample(G, sample)

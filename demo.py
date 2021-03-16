@@ -228,7 +228,7 @@ if __name__ == '__main__':
 
     dqm = build_dqm(G)
 
-    sampler = LeapHybridDQMSampler()
+    sampler = LeapHybridDQMSampler(solver='hybrid_discrete_quadratic_model_version1_bulk')
     sample = run_dqm_and_collect_solutions(dqm, sampler)
 
     group_1, group_2, sep_group, illegal_edges = process_sample(G, sample)
