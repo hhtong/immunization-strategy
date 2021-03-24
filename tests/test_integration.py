@@ -18,8 +18,12 @@ import sys
 import unittest
 import demo
 from dwave.system import LeapHybridDQMSampler
+import dwave
+import logging
 
 project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+dwave.cloud.logger.setLevel(logging.DEBUG)
 
 class TestDemo(unittest.TestCase):
 
@@ -65,7 +69,7 @@ class TestDemo(unittest.TestCase):
         args = demo.read_in_args(["--graph", "internet"])
         G = demo.build_graph(args)
         dqm = demo.build_dqm(G)
-        sampler = LeapHybridDQMSampler(solver='hybrid_discrete_quadratic_model_version1_bulk')
+        sampler = LeapHybridDQMSampler(solver='hybrid_discrete_quadratic_model_version1')
         sample = demo.run_dqm_and_collect_solutions(dqm, sampler)
 
         group_1, group_2, sep_group, illegal_edges = demo.process_sample(G, sample)

@@ -1,14 +1,12 @@
 version: 2.1
 
 orbs:
-  dwave: dwave/orb-examples@dev:dev
+  dwave: dwave/orb-examples@2
 
 workflows:
   version: 2.1
   tests:
     jobs:
-      # - dwave/test-linux-serial
-      - dwave/test-osx-serial
-      # - dwave/test-win-serial
+      - dwave/test-linux
       - dwave/test-osx
-      # - dwave/test-win
+      - dwave/test-win
