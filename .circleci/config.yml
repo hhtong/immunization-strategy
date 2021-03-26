@@ -7,9 +7,5 @@ workflows:
   version: 2.1
   tests:
     jobs:
-      - dwave/test-osx:
-          logging_debug: true
-      - dwave/test-linux:
-          logging_debug: true
       - dwave/test-win:
-          logging_debug: true
+          dwave-log-level: "debug"
